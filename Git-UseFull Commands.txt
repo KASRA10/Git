@@ -1,0 +1,364 @@
+# git config
+The `git config` command is very useful, especially when you are using Git for the first time or have installed a new Git. This command sets your identity with your name and email address. After this, any information or changes will be recorded with this credential.
+
+# git version
+That's correct. The `git version` command is used to check the Git version installed on your system. By executing this command, you can view information about your Git version.
+
+# git init
+You're correct. The first command you typically use to start a new project in Git is `git init`. This command initializes a new empty repository where you can then save your source code inside it.
+
+# git clone
+The `git clone` command is used to make a copy of an existing repository. There is a fundamental difference between `git init` and `git clone`.
+You use `git clone` when you need a copy of an existing repository. The `git clone` command first uses the `git init` command and then proceeds to fetch all its content.
+
+# git add
+The `git add` command adds all new or modified files to the repository. This command provides various options for adding files and directories.
+By replacing `<file>` with the path of the specific file you want to add, you can stage that file for commit.
+
+# git commit
+You're right. The `git commit` command is essential in Git as it adds the changes to the local repository.
+If you don't use this command correctly, it can affect the quality of your project.
+
+(git commit -m "<your message>")
+(If you forget to enter the commit message and accidentally enter the edit screen, you can follow these steps:
+1. Press `Esc` key to exit the editing mode in Git.
+2. Type `:wq` (stands for write and quit) to save your changes and exit the editor.
+This will save any changes made in the commit message file and close the editor, allowing you to proceed with committing your changes.)
+
+# git status
+The `git status` command is used to check the status of files and allows you to identify which files need attention. This command can be executed at any time.
+You can use it between `git add` and `git commit` commands to see the status of your files, including any changes that have been staged or are still untracked.
+
+# git branch
+In a Git repository, there are often multiple branches. A branch is an independent line of code development.
+The `git branch` command allows you to effectively manage branches. There are various options and switches available for working with Git branches:
+
+i) To list all branches:
+```
+
+$ git branch
+```
+
+ii) To create a new branch:
+```
+
+$ git branch <branch_name>
+```
+
+iii) To delete a branch: 
+```
+
+$ git branch -d <branch_name>
+```
+
+# git checkout
+Correct! The `git checkout` command is used for switching between branches. It is a powerful command and can be used as a versatile tool.
+
+To switch to another branch:
+```
+
+$ git checkout <branch_name>
+```
+
+You can also create a new branch and switch to it in one step using the `-b` flag:
+```
+
+$ git checkout -b <your_new_branch_name>
+```
+
+# git remote
+Exactly! The `git remote` command acts as a bridge between your local repository and the outside world. It is used when you need to establish a connection with a remote repository.
+To connect your local repository to a remote one, you can use the following command:
+```
+
+$ git remote add <shortname> <url>
+```
+
+Here, `<shortname>` is an alias or nickname for the remote repository, and `<url>` is the URL of the remote repository.
+
+# git push
+After connecting to a remote repository (using the `git remote` command), it's time to send your changes to the repository.
+You can use the following command to push your changes:
+```
+
+$ git push -u <short_name> <your_branch_name>
+```
+
+For example:
+```
+
+$ git push -u origin feature_branch
+```
+
+Before using the `git push` command, make sure you have set up the upstream source and branch in Git. You can do this by running:
+```
+
+$ git push --set-upstream <short_name> <branch_name>
+```
+
+# git fetch
+If you need to download the latest changes from team members or other repositories, you can use the `git fetch` command.
+
+This command downloads all information related to commits, references, etc. So, you can review those changes in your local repository before applying them.
+```
+
+$ git fetch
+```
+
+# git pull
+The `git pull` command downloads the content (not just the metadata) and immediately updates your local repository with the latest changes.
+To use this command, you specify the remote URL from which you want to pull the changes:
+```
+
+$ git pull <remote_url>
+```
+
+For example:
+
+```
+$ git pull origin
+```
+
+# git stash
+The `git stash` command is used to temporarily save edited files. In the context of Git, "stash" means to store anything that hasn't been committed yet.
+You can use the following command to stash your changes:
+```
+
+$ git stash
+```
+
+The following command lists all stashes:
+```
+
+$ git stash list
+```
+
+To easily apply a stash to your branch, you can use:
+```
+
+$ git stash apply
+```
+
+# git log
+The `git log` command allows you to view all previous commits, starting from the latest commit.
+To see the commit history of the current branch by default, you can use:
+```
+
+$ git log
+```
+
+However, you can use it with various options to view the commit history of all branches together. For example:
+```
+
+$ git log --all
+```
+
+This will show the commit history of all branches in your repository.
+
+# git shortlog
+The `git shortlog` command provides a summary of the `git log` command. If you only need a brief overview, this can be a useful command.
+It is particularly helpful for seeing who has worked on what.
+```
+
+$ git shortlog
+```
+
+This command will display a summarized list of commits, grouped by author, along with the number of commits made by each author.
+
+# git show
+In comparison to the `git log` command, the `git show` command displays detailed information about a specific commit.
+To view the details of a particular commit, you can use:
+```
+
+$ git show <your_commit_hash>
+```
+
+Here, `<your_commit_hash>` is the hash or identifier of the commit you want to inspect. The `git show` command will display information such as the commit message, author, date/time, and any changes made in that specific commit.
+
+# git rm
+Sometimes, you may need to delete multiple files. In such cases, the `git rm` command is used.
+This command can remove tracked files from both the index and the working directory.
+To delete a file using `git rm`, you can use:
+```
+
+$ git rm <your_file_name>
+```
+
+Here, `<your_file_name>` represents the name of the file you want to delete. The `git rm` command will not only remove the file from your working directory but also stage it for deletion in Git's staging area (index).
+
+# git merge
+The `git merge` command helps you combine changes from two branches into a single unified branch.
+To merge the changes from one branch into another, you can use:
+```
+
+$ git merge <branch_name>
+```
+
+This command will merge the commits and changes made in `<branch_name>` into your current selected branch. It integrates the changes and creates a new commit that incorporates both sets of changes.
+
+# git rebase
+The `git rebase` command is similar to the `git merge` command. It merges two branches into a unified branch with one exception: `git rebase` rewrites the commit history.
+If you have multiple private branches and want to merge them into a single branch, you should use the `git rebase` command. This creates a linear commit history.
+To perform a rebase operation, you can use:
+```
+
+$ git rebase <base>
+```
+
+Here, `<base>` refers to the base branch or commit onto which you want to apply your changes. The `git rebase` command takes the commits from your current branch and replays them on top of `<base>`, effectively rewriting the commit history.
+
+# git pull –rebase
+In many cases, when using `git pull`, it is recommended to perform a rebase instead of a merge.
+To do so, you can use the following option:
+```
+
+$ git pull --rebase
+```
+
+This command combines the actions of fetching the remote changes and then rebasing your local commits on top of those changes. It helps in maintaining a linear commit history and avoiding unnecessary merge commits.
+
+# git blame
+To examine the content of each line in a file and determine who made the changes, you can use the `git blame` command. This command helps identify who made modifications to a file.
+To use it, you can run:
+```
+
+$ git blame <your_file_name>
+```
+
+Replace `<your_file_name>` with the name of the file you want to inspect. The `git blame` command will display each line in the file along with information about which commit and author last modified that particular line.
+
+# git diff
+Most of the time, before committing or pushing changes, it's important to compare two files or branches in Git. The useful command for this is `git diff`.
+
+i) Comparing working directory with local repository:
+```
+
+$ git diff HEAD <filename>
+```
+
+This command compares the changes in the working directory with the last committed state (HEAD) for a specific file.
+
+ii) Comparing two branches:
+```
+
+$ git diff <source branch> <target branch>
+```
+
+This command allows you to compare the differences between two branches. Replace `<source branch>` and `<target branch>` with the names of the branches you want to compare. It will show you all the differences between those branches.
+
+# git clean
+Using the `git clean` command, you can work with untracked files. This command allows you to remove all untracked files from your working directory. To work with tracked files, you should use the `git reset` command.
+To remove all untracked files using `git clean`, you can run:
+```
+
+$ git clean
+```
+
+This will delete any untracked files and directories in your working directory that are not being tracked by Git.
+Please note that the `git clean` command is a potentially destructive operation, as it permanently removes files. Make sure to use it with caution and double-check which files will be deleted before executing the command.
+
+# git ls
+The `git ls` command is not a built-in Git command. There is no direct `git ls` command in Git.
+However, there are several variations of the `ls` subcommand that you can use with Git to list various aspects of your repository:
+
+- `git ls-files`: This command lists all the files tracked by Git in the current working directory and its subdirectories.
+- `git ls-tree`: This command shows the contents of a tree object (usually used to show the contents of a specific branch or commit).
+- `git ls-remote`: This command displays references in a remote repository.
+
+Each of these commands serves different purposes related to listing and displaying information about files, trees, or references within your Git repository.
+
+# git ls -la
+The `git ls -la` command is not a valid Git command. The correct syntax for listing files in Git is `git ls-files`.
+However, if you are referring to the commonly used shell command `ls -la`, it lists all files and directories, including hidden ones (files and directories whose names start with a dot), in long format. The `-l` option provides detailed information about each file or directory, while the `-a` option shows all entries, including hidden ones.
+To list all files and directories in your current working directory using the shell command:
+```
+
+$ ls -la
+```
+
+If you specifically want to list tracked files in Git using the `git ls-files` command:
+```
+
+$ git ls-files
+```
+
+# git checkout HEAD^
+The `git checkout HEAD^` command is used in Git to move the current branch pointer to the commit preceding the current one. 
+Specifically, `HEAD^` refers to the parent of the currently checked-out commit (the commit that `HEAD` points to). By executing `git checkout HEAD^`, you are switching your working directory and updating your branch pointer to that previous commit.
+It's worth noting that using `git checkout` with a specific commit or reference can detach your head from a branch, so use this command with caution.
+
+# git branch –f <branch name> <commit address> 
+Apologies for the confusion in my previous response. The correct command is `git branch -f <branch name> <commit address>`.
+This command allows you to forcefully move or reset an existing branch pointer (`<branch name>`) to a specific commit (`<commit address>`).
+For example, if you want to move the branch named "myBranch" to a specific commit with the hash "abc123", you would run:
+```
+
+$ git branch -f myBranch abc123
+```
+
+This will update the branch pointer of "myBranch" and set it to point at the specified commit, effectively moving the branch's reference.
+Please note that using this command can potentially discard commits or create conflicts if not used carefully. It should be used with caution.
+
+# git reset HEAD~<number>
+The `git reset HEAD~<number>` command is used to move the current branch pointer and reset it to a previous commit in your Git history.
+Here's how the command works:
+- `HEAD~<number>`: Specifies the number of commits you want to go back from the current commit. For example, if you use `HEAD~1`, it refers to the immediate parent commit of the current one. If you use `HEAD~2`, it refers to two commits before the current one, and so on.
+By running `git reset HEAD~<number>`, Git will move your branch pointer backwards by `<number>` commits, effectively "undoing" those commits and resetting your branch's reference point.
+Please note that using this command can potentially discard or lose commits if not used carefully. It's recommended to create a backup or make sure you have a way to restore any lost work before performing a reset operation.
+
+# git branch –b <newbranchName>
+The correct command is `git branch -b <newBranchName>`. This command is used to create a new branch and switch to it in one step.
+Here's how the command works:
+- `<newBranchName>`: Specifies the name of the new branch you want to create.
+By running `git branch -b <newBranchName>`, Git will create a new branch with the specified name (`<newBranchName>`) based on your current commit, and then immediately switch to that newly created branch. This saves you from having to run separate commands for creating a branch and switching to it.
+For example, if you want to create a new branch called "myNewBranch" and switch to it, you would run:
+```
+
+$ git branch -b myNewBranch
+```
+
+Git will then create the "myNewBranch" at your current commit and automatically switch your working directory over to this newly created branch.
+
+# git remote -v
+The `git remote -v` command is used to display the list of remote repositories associated with your local Git repository. 
+Here's how the command works:
+By running `git remote -v`, Git will show you a list of all the remotes (remote repositories) that are configured for your local repository, along with their corresponding URLs. The `-v` option stands for "verbose" and provides more detailed output.
+For example, if you run `git remote -v` and have two remotes configured, it might display something like this:
+```
+
+origin  https://github.com/user/repo.git (fetch)
+origin  https://github.com/user/repo.git (push)
+upstream    https://github.com/anotheruser/repo.git (fetch)
+upstream    https://github.com/anotheruser/repo.git (push)
+```
+
+This shows that there are two remotes: "origin" and "upstream". It also displays the URL associated with each remote for both fetch and push operations.
+The `git remote -v` command is useful when you want to see which remotes are linked to your local repository, as well as their URLs.
+
+# touch README.md LICENSE .gitignore
+The `touch` command is a shell command used to create new empty files in Unix-based systems. In the context of your question, running the following commands will create three files: README.md, LICENSE, and .gitignore.
+```
+
+$ touch README.md
+$ touch LICENSE
+$ touch .gitignore
+```
+
+Each command creates a separate file with the specified name. The `.md` extension conventionally represents Markdown files often used for documentation or READMEs. The `LICENSE` file typically contains licensing information for your project. Lastly, the `.gitignore` file is used to specify patterns of files that should be ignored by Git when tracking changes.
+Please note that if these files already exist in your current directory, running `touch` on them will only update their modification timestamp without changing their content.
+
+# nano <file's name>
+nano terminal, editing area(edit the file)
+CTRL + O + Enter +> Save And Out
+CTRL + X +> Exit
+CTRL + Z +> Stop And Exit The Flow
+
+# Simple steps to put your project in the github repository and even sync with it:
+git init 
+touch README.md LICENSE .gitignore 
+git add . 
+git status 
+git commit –m "<message>" 
+git remote add origin <link of reposetory> 
+git push –u origin master 
+git pull origin 
