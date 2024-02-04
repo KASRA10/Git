@@ -352,6 +352,10 @@ nano terminal, editing area(edit the file)
 CTRL + O + Enter +> Save And Out
 CTRL + X +> Exit
 CTRL + Z +> Stop And Exit The Flow
+(If ctrl + x does not work for you then your git is using vim. In that case, Press esc and type ":wq" (w- means for write, q - means for quit) and press enter.
+In the future if you want to use nano as a default text editor. then go to the main screen on terminal. type: nano ~/.gitconfig
+The above command line will open an empty file and in the empty file type: git config core.editor "nano"
+then press ctrl + x and enter to save and get out.)
 
 # Simple steps to put your project in the github repository and even sync with it:
 git init 
