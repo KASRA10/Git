@@ -356,6 +356,8 @@ CTRL + Z +> Stop And Exit The Flow
 In the future if you want to use nano as a default text editor. then go to the main screen on terminal. type: nano ~/.gitconfig
 The above command line will open an empty file and in the empty file type: git config core.editor "nano"
 then press ctrl + x and enter to save and get out.)
+Clarify this stage:
+You press i, and you enter insert mode. You can navigate around the text and insert what ever you want. When done, press Esc. This makes you exit insert mode. Next you have to press :wq, which means to write and quit.
 
 # Simple steps to put your project in the github repository and even sync with it:
 git init 
